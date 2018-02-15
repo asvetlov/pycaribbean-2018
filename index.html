@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ru" >
+  <head>
+    <title>Unicode in Python</title>
+    <meta name="description" content="">
+    <meta name="author" content="Andrew Svetlov">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/custom.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/custom.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+      <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Unicode in Python</h1>
+          <p>
+            Andrew Svetlov
+            <p>
+              <small>@andrew_svetlov</small><br>
+              <small>andrew.svetlov@gmail.com</small><br>
+              <small>http://asvetlov.github.io/pycaribbean-2018/</small>
+            </p>
+          </p>
+        </section>
+        <section>
+          <h2>About myself</h2>
+          <ul>
+            <li>Working at Ocean S.A.
+              (<a href="https://ocean.io/">https://ocean.io/</a>)</li>
+            <li>aio-libs, aiohttp etc.</li>
+            <li>Python Core Developer</li>
+          </ul>
+        </section>
+        <!-- ------------------------------------------ -->
+	<section>
+	  <section>
+	    <h1>ASCII</h1>
+	    <img src="dynasaur.jpg"/>
+	  </section>
+	  <section>
+	    <h2>ASCCI age</h2>
+	    <ul>
+	      <li>Every symbol is 7 bit</li>
+	      <li>Ord > 127 for national encoding</li>
+	    </ul>
+	  </section>
+	  <section>
+	    <h2>Russian codecs</h2>
+	    <ul>
+	      <li>Windows 1251</li>
+	      <li>KOI8-R</li>
+	      <li>IBM 855</li>
+	      <li>IBM 866</li>
+	      <li>Mac Cyrillic</li>
+	      <li>ISO 8859-5</li>
+	    </ul>
+	    <p class="fragment">Codecs are <b>not compatible</b></p>
+	  </section>
+	</section>
+	<section>
+	  <section>
+	    <h1>Unicode</h1>
+	    <img src="unirobo.png"/>
+	  </section>
+	  <section>
+	    <ul>
+	      <li>Character → Code Point</li>
+	      <li>1,114,112 code points</li>
+	      <li>136,755 characters</li>
+	      <li>139 modern and historic scripts</li>
+	      <li>Hieroglyphs</li>
+	      <li>Ideographics</li>
+	      <li>Emojis</li>
+	      <li>etc.</li>
+	    </ul>
+	    <p class="fragment">No <b>binary representation</b> so far</p>
+	  </section>
+	</section>
+	<section>
+	  <section>
+	    <h1>Codecs</h1>
+	    <p class="fragment"><i>Hint:</i> Drop everything except UTF-8</p>
+	  </section>
+	  <section>
+	    <h1>UTF</h1>
+	    <p>Unicode Transformation Format</p>
+	    <ul>
+	      <li>Unicode → Code Points in memory</li>
+	      <li>UTF → Bytes on Storage (files/network/database)</li>
+	    </ul>
+	  </section>
+	  <section>
+	    <h1>UTF</h1>
+	    <ul>
+	      <li>UTF-8</li>
+	      <li>UTF-16LE</li>
+	      <li>UTF-16BE</li>
+	      <li>UTF-32LE</li>
+	      <li>UTF-32BE</li>
+	      <li>+BOM</li>
+	    </ul>
+	    <p class="fragment"><b>Universal?</b> Really?</p>
+	  </section>
+	</section>
+        <!-- ------------------------------------------ -->
+        <section>
+          <h1>Questions?</h1>
+          <p>
+            Andrew Svetlov
+	  </p>
+          <p>
+            <small>@andrew_svetlov</small><br>
+            <small>andrew.svetlov@gmail.com</small><br>
+            <small>http://asvetlov.github.io/optimization-kiev-2017/</small>
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+       slideNumber: true,
+       transition: 'slide', // none/fade/slide/convex/concave/zoom
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+    </script>
+
+  </body>
+</html>
