@@ -46,7 +46,7 @@
         <section>
           <h2>Bio</h2>
           <ul>
-            <li>Working at Ocean S.A.
+            <li>Work on Ocean S.A.
               (<a href="https://ocean.io/">https://ocean.io/</a>)</li>
             <li>aio-libs, aiohttp etc.</li>
             <li>Python Core Developer</li>
@@ -95,7 +95,7 @@
 	      <li>Emojis</li>
 	      <li>etc.</li>
 	    </ul>
-	    <p class="fragment">No <b>binary representation</b> so far</p>
+	    <p class="fragment">Not a <b>binary representation</b></p>
 	  </section>
 	</section>
         <!-- ------------------------------------------ -->
@@ -136,12 +136,12 @@
 	  <section>
 	    <h2>UTF-8</h2>
 	    <ul>
-	      <li>1-4 bytes per code point</li>
+	      <li><b>1-4</b> bytes per code point</li>
 	      <li>Can encode everything</li>
-	      <li>[\u0000-\u007F] 0bbb_bbbb</li>
-	      <li>[\u0080-\u07FF] 110b_bbbb+10bb_bbbb</li>
-	      <li>[\u0800-\uFFFF] 1110_bbbb+10bb_bbbb*2</li>
-	      <li>[\U00010000-\U00010FFFF] 1111_0bb+10bb_bbbb*3</li>
+	      <li><b>[\u0000-\u007F]</b> 0bbb_bbbb</li>
+	      <li><b>[\u0080-\u07FF]</b> 110b_bbbb+10bb_bbbb</li>
+	      <li><b>[\u0800-\uFFFF]</b> 1110_bbbb+10bb_bbbb*2</li>
+	      <li><b>[\U00010000-\U00010FFFF]</b> 1111_0bb+10bb_bbbb*3</li>
 	    </ul>
 	  </section>
 	  <section>
@@ -156,10 +156,16 @@
 	    <h2>UTF-16</h2>
 	    <ul>
 	      <li>2 or 4 bytes per code point</li>
+	      <li>Gory inheritage</li>
 	      <li>Surrogate pairs:</li>
 	      <li>D800-DBFF + DC00-DFFF</li>
 	    </ul>
-	    <p>U+1F872 (🡲) to UTF-16 → D83E + DC72</p>
+	    <p><b>U+1F872</b> (🡲) to UTF-16 → <b>D83E + DC72</b></p>
+	    <pre><code>
+off = ord(ch) - 0x10000
+high = (off // 0x400) + 0xD800
+low = (off % 0x400) + 0xDC00
+	    </code></pre>
 	  </section>
 	  <section>
 	    <h2>BOM</h2>
@@ -184,6 +190,9 @@
 		<li>backslashreplace</li>
 		<li>...</li>
 	      </ul>
+	    </p>
+	    <p>
+	      <small>https://docs.python.org/3/library/codecs.html#codec-base-classes</small>
 	    </p>
 	  </section>
 	</section>
@@ -257,7 +266,7 @@ ö → 2 code points, 'o'(\u006f) + '̈'(\u0308)
 	  </section>
 	  <section>
 	    <h2>Code Point Names</h2>
-	    <code><pre>
+	    <pre><code>
 >>> unicodedata.name(' ')
 'SPACE'
 >>> unicodedata.name('A')
@@ -266,18 +275,18 @@ ö → 2 code points, 'o'(\u006f) + '̈'(\u0308)
 ' '
 >>> '\N{LATIN CAPITAL LETTER A}'
 'A'
-	    </pre></code>
+	    </code></pre>
 	  </section>
 	  <section>
 	    <h2>Funny numbers</h2>
-	    <code><pre>
+	    <pre><code>
 >>> sum(unicodedata.category(chr(i)) == 'Zs'
 ...     for i in range(sys.maxunicode))
 17
 >>> sum(unicodedata.category(chr(i)).startswith('P')
 ...     for i in range(sys.maxunicode))
 748
-	    </pre></code>
+	    </code></pre>
 	    <p class="fragment"><i>Hint:</i> splitting a text into words is complicated</p>
 	  </section>
 	  <section>
