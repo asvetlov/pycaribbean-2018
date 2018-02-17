@@ -44,7 +44,7 @@
           </p>
         </section>
         <section>
-          <h2>About myself</h2>
+          <h2>Bio</h2>
           <ul>
             <li>Working at Ocean S.A.
               (<a href="https://ocean.io/">https://ocean.io/</a>)</li>
@@ -61,7 +61,7 @@
 	  <section>
 	    <h2>ASCII age</h2>
 	    <ul>
-	      <li>Every symbol is 7 bit</li>
+	      <li>Every symbol takes 7 bit</li>
 	      <li>Ord > 127 for national encodings</li>
 	    </ul>
 	  </section>
@@ -194,7 +194,7 @@
 	    <img src="composition.jpg" width="70%" />
 	  </section>
 	  <section>
-	    <h2>Example</h2>
+	    <h2>Trick</h2>
 	    <pre><code>
 >>> s1 = "Löwe"
 >>> s2 = "Löwe"
@@ -223,9 +223,9 @@ ö → 2 code points, 'o'(\u006f) + '̈'(\u0308)
 	    <h2>Normalization</h2>
 	    <p>unicodedata.normalize(form, s)</p>
 	    <ul>
-	      <li>NFC</li>
+	      <li>NFC (Composed)</li>
 	      <li>NFKC</li>
-	      <li>NFD</li>
+	      <li>NFD (Decomposed)</li>
 	      <li>NFKD</li>
 	    </ul>
 	  </section>
@@ -354,12 +354,9 @@ URL('https://wikipedia.org/%D1%82%D0%B5%D0%BA%D1%81%D1%82')
 >>> URL('https://雜草工作室.香港')
 URL('https://xn--2qq421aovb6v1e3pu.xn--j6w193g')
 	    </code></pre>
-	  </section>
-	  <section>
-	    <h2>U-label and A-label</h2>
 	    <ul>
-	      <li>雜草工作室.香港</li>
-	      <li>xn--2qq421aovb6v1e3pu.xn--j6w193g</li>
+	      <li>U-Label → 雜草工作室.香港</li>
+	      <li>A-Label → xn--2qq421aovb6v1e3pu.xn--j6w193g</li>
 	    </ul>
 	  </section>
 	</section>
