@@ -78,6 +78,7 @@
 	    <p class="fragment">Codecs are <b>not compatible</b></p>
 	  </section>
 	</section>
+        <!-- ------------------------------------------ -->
 	<section>
 	  <section>
 	    <h1>Unicode</h1>
@@ -97,13 +98,14 @@
 	    <p class="fragment">No <b>binary representation</b> so far</p>
 	  </section>
 	</section>
+        <!-- ------------------------------------------ -->
 	<section>
 	  <section>
 	    <h1>Codecs</h1>
 	    <img src="encoding.jpeg"/>
 	    <!-- 
-	    <p><i>Hint:</i> Drop everything <b>except UTF-8</b></p>
-	    <p class="fragment">Sure you cannot but <b>should strive</b>.</p>
+		 <p><i>Hint:</i> Drop everything <b>except UTF-8</b></p>
+		 <p class="fragment">Sure you cannot but <b>should strive</b>.</p>
 	    -->
 	  </section>
 	  <section>
@@ -185,6 +187,7 @@
 	    </p>
 	  </section>
 	</section>
+        <!-- ------------------------------------------ -->
 	<section>
 	  <section>
 	    <h1>Composites</h1>
@@ -236,6 +239,7 @@ ö → 2 code points, 'o'(\u006f) + '̈'(\u0308)
 	    </code></pre>
 	  </section>
 	</section>
+        <!-- ------------------------------------------ -->
 	<section>
 	  <section>
 	    <h1>Categories</h1>
@@ -305,6 +309,7 @@ ö → 2 code points, 'o'(\u006f) + '̈'(\u0308)
 	    </table>
 	  </section>
 	</section>
+        <!-- ------------------------------------------ -->
 	<section>
 	  <section>
 	    <h1>Regular expressions</h1>
@@ -321,12 +326,16 @@ ö → 2 code points, 'o'(\u006f) + '̈'(\u0308)
 >>> p = regex.compile('\p{Zs}+')
 >>> p.split('a   b  c')
 ['a', 'b', 'c']
+
+>> regex.compile('[\p{Z}\p{P}]+')
 	    </code></pre>
 	  </section>
 	</section>
+        <!-- ------------------------------------------ -->
 	<section>
 	  <section>
 	    <h1>URL encoding</h1>
+	    <img src="url.jpeg"/>
 	  </section>
 	  <section>
 	    <h2>Percent encoding</h2>
